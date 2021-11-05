@@ -21,7 +21,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#include <iostream>
 #include <thread>
 #include <mutex>
 #include <vector>
@@ -296,6 +295,9 @@ int Lizard::getId()
  {
 	 // launch the thread to simulate the lizard's behavior
     _aLizard = new thread ( lizardThread, this); 
+
+
+
  }
  
  /**
@@ -640,6 +642,7 @@ int main(int argc, char **argv)
 	/*
      * Initialize variables
      */
+
 	numCrossingSago2MonkeyGrass = 0;
 	numCrossingMonkeyGrass2Sago = 0;
 	running = 1;
@@ -671,6 +674,10 @@ int main(int argc, char **argv)
      * Create NUM_CATS cat threads
      */
 	 
+	vector<Cat*> allCats;
+	for(int i = 0; i < NUM_CATS; i++){
+		allCats.push_back(new Cat(i));
+	}
 
 	/*
 	 * Run NUM_LIZARDS and NUM_CATS threads
@@ -696,8 +703,7 @@ int main(int argc, char **argv)
      */
 
 
-
-
+	
 
 
 	/*
